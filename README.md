@@ -16,6 +16,9 @@ Write commands found on BLE datasheet through USB com port.
 
 ## Helpful Links
 
+MSP432 driver library 
+http://www.ti.com/tool/MSPDRIVERLIB
+
 How to add msp432 driver library
 https://e2e.ti.com/support/development_tools/code_composer_studio/f/81/p/578332/2122538#2122538
 
