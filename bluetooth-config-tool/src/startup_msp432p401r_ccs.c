@@ -34,8 +34,10 @@
 * 
 *****************************************************************************/
 
+#include <stdbool.h>
 #include <stdint.h>
-#include "main.h"
+#include "communication/ble.h"
+#include "communication/usb.h"
 
 /* Linker variable that marks the top of the stack. */
 extern unsigned long __STACK_END;
@@ -103,9 +105,9 @@ extern void PORT5_IRQHandler    (void) __attribute__((weak,alias("Default_Handle
 extern void PORT6_IRQHandler    (void) __attribute__((weak,alias("Default_Handler")));
 
 /* EUSCIA0_IRQHandler */
-extern void usbIntHandler       (void) __attribute__((weak,alias("Default_Handler")));
+extern void usb_intHandler      (void) __attribute__((weak,alias("Default_Handler")));
 /* EUSCIA2_IRQHandler */
-extern void bluetoothIntHandler (void) __attribute__((weak,alias("Default_Handler")));
+extern void ble_intHandler      (void) __attribute__((weak,alias("Default_Handler")));
 /* T32_INT1_IRQHandler */
 extern void timer32IntHandler   (void) __attribute__((weak,alias("Default_Handler")));
 
@@ -149,9 +151,9 @@ void (* const interruptVectors[])(void) =
     TA2_N_IRQHandler,                      /* TA2_N Interrupt           */
     TA3_0_IRQHandler,                      /* TA3_0 Interrupt           */
     TA3_N_IRQHandler,                      /* TA3_N Interrupt           */
-    usbIntHandler,                         /* EUSCIA0 Interrupt         */
+    usb_intHandler,                        /* EUSCIA0 Interrupt         */
     EUSCIA1_IRQHandler,                    /* EUSCIA1 Interrupt         */
-    bluetoothIntHandler,                   /* EUSCIA2 Interrupt         */
+    ble_intHandler,                        /* EUSCIA2 Interrupt         */
     EUSCIA3_IRQHandler,                    /* EUSCIA3 Interrupt         */
     EUSCIB0_IRQHandler,                    /* EUSCIB0 Interrupt         */
     EUSCIB1_IRQHandler,                    /* EUSCIB1 Interrupt         */

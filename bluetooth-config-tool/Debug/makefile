@@ -10,12 +10,13 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./config.obj" \
-"./main.obj" \
-"./startup_msp432p401r_ccs.obj" \
-"./system_msp432p401r.obj" \
-"../msp432p401r.cmd" \
+"./src/communication/ble.obj" \
+"./src/communication/usb.obj" \
+"./src/main.obj" \
+"./src/startup_msp432p401r_ccs.obj" \
+"./src/system_msp432p401r.obj" \
 "C:/ti8/msp432_driverlib_3_21_00_05/driverlib/ccs/msp432p4xx_driverlib.lib" \
+"../src/msp432p401r.cmd" \
 $(GEN_CMDS__FLAG) \
 -l"C:/ti8/msp432_driverlib_3_21_00_05/driverlib/ccs/msp432p4xx_driverlib.lib" \
 -llibc.a \
@@ -28,7 +29,11 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include src/communication/subdir_vars.mk
+-include src/subdir_vars.mk
 -include subdir_rules.mk
+-include src/communication/subdir_rules.mk
+-include src/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -159,8 +164,8 @@ bluetooth-config-tool.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "config.obj" "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
-	-$(RM) "config.d" "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
+	-$(RM) "src\communication\ble.obj" "src\communication\usb.obj" "src\main.obj" "src\startup_msp432p401r_ccs.obj" "src\system_msp432p401r.obj" 
+	-$(RM) "src\communication\ble.d" "src\communication\usb.d" "src\main.d" "src\startup_msp432p401r_ccs.d" "src\system_msp432p401r.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
