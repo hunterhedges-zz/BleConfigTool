@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>bluetooth-config-tool</name>
+	<name>BleConfigTool</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -28,7 +28,7 @@
 		<link>
 			<name>msp432p4xx_driverlib.lib</name>
 			<type>1</type>
-			<locationURI>PARENT-6-PROJECT_LOC/ti8/msp432_driverlib_3_21_00_05/driverlib/ccs/msp432p4xx_driverlib.lib</locationURI>
+			<locationURI>TI_PRODUCTS_DIR/msp432_driverlib_3_21_00_05/driverlib/MSP432P4xx/ccs/msp432p4xx_driverlib.lib</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
